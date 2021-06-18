@@ -50,6 +50,7 @@
 </head>
 
 <body class="">
+
     <h1 class=" mt-2 text-center text-secondary">Login to <strong>E-</strong>Books</h1>
     <div class="container-fluid">
         <!-- <?php $this->load->view('users/header'); ?> -->
@@ -87,6 +88,9 @@
             <?php echo form_label('Password',) ?>
             <span class="text-danger"> <?php echo form_error('Password') ?> </span>
         </div>
+        <?php if (isset($invalid_error)) {
+            echo "<span class='my-5 text-danger'>" . $invalid_error . "</span>";
+        } ?>
         <div class="form-floating mb-3 pt-2">
             <?php
             $attr = array(
@@ -97,7 +101,6 @@
             );
             ?>
             <?php echo form_submit($attr) ?>
-            <?php echo $this->session->flashdata('error')?>
             <a class=" col-9 text-light" href="<?= base_url('User'); ?>">Create an account !</a>
         </div>
 

@@ -19,7 +19,7 @@ class User extends CI_Controller
     }
     public function login_view()
     {
-        $this->load->view('User/login');
+        $this->load->view('user/login');
     }
     public function header()
     {
@@ -32,27 +32,30 @@ class User extends CI_Controller
             'Email',
             'trim|required|valid_email'
         );
+
         $this->form_validation->set_rules(
             'Password',
             'Password',
             'trim|required'
         );
+
         if ($this->form_validation->run()) {
             $email = $this->input->post('email');
             $password = hash('SHA512', $this->input->post('Password'));
+
             if($this->User_model->login_user($email, $password)){
                 $user_data= array(
                     'email' => $email,
                     'password' => $password,
                 );
-                $this->session->set_userdata($user_data);
-                // $data = $this->session->userdata();
+                $this->session->set_userdata('login_user',$user_data);
                 $this->load->view('user/upload_view');
-                // print_r($data);
+            }else {
+                $invalid_error = 'Invalid username and password';
+                $this->load->view('user/login', compact('invalid_error'));
             }
         } else {
-            $this->session->set_flashdata('error','Invalid username and password');
-            $this->login_view();
+            $this->load->view('user/login');
         }
     }
     public function display_roles()
@@ -120,5 +123,8 @@ class User extends CI_Controller
     public function upload_view()
     {
         $this->load->view('user/upload_view');
+    }
+    public function logout(){
+        
     }
 }

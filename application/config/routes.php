@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['register']['GET'] = 'User/register';
 $route['register']['POST'] = 'User/register';
 $route['login']['GET'] = 'User/login';
+// $route['login']['GET'] = 'User/login';
 $route['login']['POST'] = 'User/login';
 $route['do_upload']['POST'] = 'User/do_upload';
 $route['do_upload']['GET'] = 'User/do_upload';
