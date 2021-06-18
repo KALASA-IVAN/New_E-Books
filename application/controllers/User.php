@@ -50,6 +50,9 @@ class User extends CI_Controller
                 $this->load->view('user/upload_view');
                 // print_r($data);
             }
+            else{
+                
+            }
         } else {
             $this->session->set_flashdata('error','Invalid username and password');
             $this->login_view();

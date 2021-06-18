@@ -60,4 +60,5 @@ $route['do_upload']['POST'] = 'User/do_upload';
 $route['do_upload']['GET'] = 'User/do_upload';
 $route['User/upload_view'] = 'User/upload_view';
 $route['upload_book'] = 'User/upload_book';
+$route['logout'] = 'User/logout';
 

@@ -18,6 +18,7 @@
     <div class="container-fluid">
         <?php $this->load->view('users/header'); ?>
         <a class=" col-9 p-5 text-decoration-none text-dark" href="<?= base_url('upload_book'); ?>">Upload book</a>
+        <a class=" col-9 p-5 text-decoration-none text-dark" href="<?= base_url('logout'); ?>">Upload book</a>
         <div class="container d-flex flex-wrap">
             <div class="card m-2" style="width: 12rem;">
                 <img src="assets/images/background.png" class="card-img-top" alt="...">
